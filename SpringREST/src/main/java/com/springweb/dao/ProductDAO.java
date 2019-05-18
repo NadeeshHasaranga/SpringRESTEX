@@ -28,7 +28,7 @@ public class ProductDAO {
 	}
 
 	/*get an employee by id*/
-	public Product findone(String empid) {
+	public Product findone(Long empid) {
 		return productRepository.findOne(empid);
 	}
 	
