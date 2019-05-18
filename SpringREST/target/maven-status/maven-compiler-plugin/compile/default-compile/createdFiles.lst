@@ -1,0 +1,5 @@
+com\springweb\ProductApplication.class
+com\springweb\controller\ProductController.class
+com\springweb\model\Product.class
+com\springweb\repository\ProductRepository.class
+com\springweb\dao\ProductDAO.class
