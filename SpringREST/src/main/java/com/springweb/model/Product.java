@@ -18,12 +18,30 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Product {
 	
-	public Long getId() {
-		return id;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	
+	
+	@NotBlank
+	private String code;
+	
+	@NotBlank
+	private String name;
+	
+	@NotBlank
+	private String designation;
+	
+	@NotBlank
+	private String expertise;
+	
+	
+	public String getId() {
+		return code;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(String code) {
+		this.code = code;
 	}
 
 	public String getName() {
@@ -49,23 +67,6 @@ public class Product {
 	public void setExpertise(String expertise) {
 		this.expertise = expertise;
 	}
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	
-	
-	@NotBlank
-	private Long id;
-	
-	@NotBlank
-	private String name;
-	
-	@NotBlank
-	private String designation;
-	
-	@NotBlank
-	private String expertise;
-	
 	
 	
 

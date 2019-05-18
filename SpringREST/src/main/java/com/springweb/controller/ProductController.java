@@ -48,8 +48,8 @@ public List <Product> getAllEmployees(){
 
 /*get employee by empid */
 
-@GetMapping("/notes/{id}")
-public ResponseEntity<Product> getEmployeeById(@PathVariable(value ="id")Long empid){
+@GetMapping("/notes/{code}")
+public ResponseEntity<Product> getEmployeeById(@PathVariable(value ="code")String empid){
 
 	
 		Product emp = productDAO.findone(empid);
@@ -58,8 +58,7 @@ public ResponseEntity<Product> getEmployeeById(@PathVariable(value ="id")Long em
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok().body(emp);
-		
-		
+				
 }
 
 
@@ -68,8 +67,8 @@ public ResponseEntity<Product> getEmployeeById(@PathVariable(value ="id")Long em
  */
 
 
-@PutMapping("/employees/{id}")
-public ResponseEntity<Product> updateEmployee(@PathVariable(value ="id") Long empid,@Valid @RequestBody Product empDetails){
+@PutMapping("/employees/{code}")
+public ResponseEntity<Product> updateEmployee(@PathVariable(value ="code") String empid,@Valid @RequestBody Product empDetails){
 
 
 	Product emp = productDAO.findone(empid);
@@ -85,14 +84,11 @@ public ResponseEntity<Product> updateEmployee(@PathVariable(value ="id") Long em
 	return ResponseEntity.ok().body(emp);
 
 
-
-
-
 }
 
 /*Delete an employee*/
-@DeleteMapping("/notes/{id}")
-public ResponseEntity<Product> deleteEmployee(@PathVariable(value="id")Long empid) {
+@DeleteMapping("/notes/{code}")
+public ResponseEntity<Product> deleteEmployee(@PathVariable(value="code")String empid) {
 Product emp = productDAO.findone(empid);
 	
 	if(emp==null) {
